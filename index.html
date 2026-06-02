@@ -183,11 +183,14 @@
   body{padding-bottom:80px;}
 
   /* LIVE POP NOTIF */
-  .live-pop{position:fixed;left:14px;bottom:90px;background:#fff;border-radius:12px;box-shadow:0 8px 28px rgba(0,0,0,.2);padding:10px 14px;display:flex;gap:10px;align-items:center;max-width:280px;z-index:998;font-size:13px;transform:translateX(-120%);transition:transform .4s ease;border-left:4px solid var(--green);}
+  .live-pop{position:fixed;left:14px;bottom:90px;background:#fff;border-radius:14px;box-shadow:0 10px 32px rgba(0,0,0,.18);padding:14px 16px 14px 14px;display:flex;gap:12px;align-items:flex-start;max-width:300px;z-index:998;font-size:13.5px;transform:translateX(-130%);transition:transform .45s cubic-bezier(.2,.8,.2,1);}
   .live-pop.show{transform:translateX(0);}
-  .live-pop .lp-ic{font-size:24px;}
-  .live-pop b{color:var(--blue-dark);}
-  .live-pop span{display:block;font-size:11px;color:#666;margin-top:2px;}
+  .live-pop .lp-dot{flex:0 0 12px;width:12px;height:12px;background:#22c55e;border-radius:50%;margin-top:6px;box-shadow:0 0 0 4px rgba(34,197,94,.18);animation:dotPulse 1.4s infinite;}
+  @keyframes dotPulse{0%,100%{box-shadow:0 0 0 4px rgba(34,197,94,.18);}50%{box-shadow:0 0 0 8px rgba(34,197,94,.05);}}
+  .live-pop .lp-text{line-height:1.45;color:#111;}
+  .live-pop .lp-text b{font-weight:800;color:#111;}
+  .live-pop .lp-text .lp-prod{display:block;color:#333;font-weight:600;margin-top:2px;}
+  .live-pop .lp-text .lp-time{display:block;font-size:11.5px;color:#888;margin-top:4px;}
 </style>
 </head>
 <body>
@@ -527,23 +530,34 @@
   }
   setTimeout(dropStock, 18000);
 
-  // Live "barusan dipesan" notifikasi pop
+  // Live "barusan dipesan" notifikasi pop (style: dot hijau + nama + produk + waktu)
   const buyers=[
     ["Ibu Sari","Bandung"],["Pak Andi","Jakarta"],["Mbak Rina","Surabaya"],
-    ["Bu Dewi","Semarang"],["Pak Joko","Medan"],["Mbak Lia","Bekasi"],
-    ["Bu Tini","Bogor"],["Pak Hasan","Malang"],["Mbak Putri","Yogya"],
-    ["Bu Wati","Tangerang"],["Mbak Sinta","Depok"],["Pak Eko","Bali"]
+    ["Bu Dewi","Semarang"],["Pak Joko","Balikpapan"],["Mbak Lia","Bekasi"],
+    ["Bu Tini","Bogor"],["Pak Hasan","Malang"],["Mbak Putri","Yogyakarta"],
+    ["Bu Wati","Tangerang"],["Mbak Sinta","Depok"],["Pak Eko","Bali"],
+    ["Ibu Ratna","Palembang"],["Mbak Dini","Makassar"],["Pak Budi","Pekanbaru"],
+    ["Bu Nina","Solo"],["Pak Rudi","Pontianak"],["Mbak Ayu","Manado"]
+  ];
+  const produks=[
+    "1 pcs Cleanov Alat Pel",
+    "Paket Favorit (Cleanov + Refill)",
+    "2 pcs Cleanov (Paket Keluarga)",
+    "1 pcs Cleanov + Bonus Ember",
+    "Paket Hemat 1 pcs Cleanov"
   ];
   function showPop(){
     const b=buyers[Math.floor(Math.random()*buyers.length)];
+    const p=produks[Math.floor(Math.random()*produks.length)];
+    const t=Math.floor(Math.random()*9)+1; // 1-9 menit lalu
     const div=document.createElement('div');
     div.className='live-pop';
-    div.innerHTML=`<div class="lp-ic">🛒</div><div><b>${b[0]}</b> dari <b>${b[1]}</b><span>baru saja memesan Cleanov ✅</span></div>`;
+    div.innerHTML=`<div class="lp-dot"></div><div class="lp-text"><b>${b[0]} (${b[1]})</b> baru saja memesan<span class="lp-prod">${p}</span><span class="lp-time">${t} menit lalu</span></div>`;
     document.body.appendChild(div);
     setTimeout(()=>div.classList.add('show'),50);
-    setTimeout(()=>{div.classList.remove('show');setTimeout(()=>div.remove(),400);},4500);
+    setTimeout(()=>{div.classList.remove('show');setTimeout(()=>div.remove(),450);},5000);
   }
-  setTimeout(function loop(){showPop();setTimeout(loop, 12000+Math.random()*10000);}, 6000);
+  setTimeout(function loop(){showPop();setTimeout(loop, 10000+Math.random()*9000);}, 5000);
 </script>
 </body>
 </html>
