@@ -53,6 +53,9 @@
   .btn-cta{display:block;width:100%;max-width:420px;margin:0 auto;background:linear-gradient(135deg,#ff6a00,#e85a00);color:#fff;font-size:clamp(17px,4.2vw,21px);font-weight:900;padding:18px 22px;border-radius:50px;text-decoration:none;text-align:center;box-shadow:0 6px 24px rgba(255,106,0,.55);letter-spacing:.3px;cursor:pointer;border:none;animation:pulse 1.6s infinite;}
   @keyframes pulse{0%,100%{transform:scale(1);box-shadow:0 6px 24px rgba(255,106,0,.5);}50%{transform:scale(1.03);box-shadow:0 10px 32px rgba(255,106,0,.7);}}
   .btn-cta small{display:block;font-size:12px;font-weight:600;opacity:.95;margin-top:3px;}
+  .guarantee-badges{display:flex;justify-content:center;gap:14px;margin-top:22px;flex-wrap:wrap;}
+  .gb{background:rgba(255,255,255,.15);backdrop-filter:blur(8px);border:1.5px solid rgba(255,255,255,.3);border-radius:12px;padding:10px 14px;font-size:22px;text-align:center;min-width:100px;}
+  .gb span{display:block;font-size:11px;font-weight:800;margin-top:4px;line-height:1.2;letter-spacing:.3px;}
 
   /* SECTIONS */
   section{padding:42px 18px;}
@@ -76,6 +79,19 @@
   .feature .ico{font-size:34px;margin-bottom:8px;}
   .feature h4{font-size:16px;font-weight:800;color:var(--blue-dark);margin-bottom:4px;}
   .feature p{font-size:14px;color:var(--gray);}
+
+  /* VS TABLE */
+  .vs-wrap{background:linear-gradient(180deg,#fff 0%,#fff4e6 100%);}
+  .vs-table{max-width:680px;margin:0 auto;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.1);border:2px solid var(--orange);}
+  .vs-row{display:grid;grid-template-columns:1.2fr 1fr 1.1fr;border-bottom:1px solid #eee;}
+  .vs-row:last-child{border-bottom:none;}
+  .vs-row>div{padding:12px 10px;font-size:13.5px;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:600;}
+  .vs-row>div:first-child{font-weight:800;background:#f8f9fb;color:var(--blue-dark);justify-content:flex-start;padding-left:14px;text-align:left;}
+  .vs-row.vs-head>div{background:var(--blue-dark)!important;color:#fff;font-size:13px;font-weight:900;padding:14px 10px;letter-spacing:.5px;}
+  .vs-row.vs-head .vs-bad{background:var(--red)!important;}
+  .vs-row.vs-head .vs-good{background:var(--green)!important;}
+  .vs-bad{color:var(--red);background:#fff5f5;}
+  .vs-good{color:var(--green-dark);background:#e8f8ee;font-weight:800!important;}
 
   /* GALLERY */
   .gallery{background:#fff;}
@@ -119,7 +135,12 @@
   .pkg ul{list-style:none;text-align:left;font-size:13.5px;margin-bottom:14px;}
   .pkg ul li{padding:4px 0;padding-left:22px;position:relative;}
   .pkg ul li:before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:900;}
-  .pkg .btn-mini{display:block;background:linear-gradient(135deg,#ff6a00,#e85a00);color:#fff;padding:12px;border-radius:30px;text-decoration:none;font-weight:800;font-size:14px;}
+  .pkg .btn-mini{display:block;background:linear-gradient(135deg,#ff6a00,#e85a00);color:#fff;padding:12px;border-radius:30px;text-decoration:none;font-weight:800;font-size:14px;box-shadow:0 4px 14px rgba(255,106,0,.35);}
+  .pkg .save-badge{display:inline-block;background:var(--yellow);color:#000;font-size:11px;font-weight:900;padding:4px 10px;border-radius:20px;margin-bottom:10px;letter-spacing:.5px;}
+  .guarantee-seal{max-width:600px;margin:30px auto 0;background:#fff;border:3px dashed var(--green);border-radius:14px;padding:18px 20px;display:flex;gap:14px;align-items:center;box-shadow:0 6px 20px rgba(22,163,74,.15);}
+  .guarantee-seal .seal-icon{font-size:48px;line-height:1;}
+  .guarantee-seal h4{color:var(--green-dark);font-size:17px;font-weight:900;margin-bottom:4px;}
+  .guarantee-seal p{font-size:13.5px;color:#333;line-height:1.5;}
 
   /* FORM */
   .form-wrap{background:#fff;}
@@ -155,49 +176,64 @@
   /* STICKY CTA */
   .sticky-cta{position:fixed;bottom:0;left:0;right:0;background:#fff;padding:10px 14px;box-shadow:0 -4px 18px rgba(0,0,0,.15);z-index:999;display:flex;gap:10px;align-items:center;}
   .sticky-cta .price-mini{flex:1;font-size:13px;line-height:1.2;}
-  .sticky-cta .price-mini b{display:block;color:var(--red);font-size:17px;font-weight:900;}
-  .sticky-cta .price-mini s{color:#999;font-size:12px;}
+  .sticky-cta .price-mini b{display:block;color:var(--red);font-size:18px;font-weight:900;line-height:1.1;}
+  .sticky-cta .price-mini s{color:#999;font-size:11px;display:block;}
+  .sticky-cta .price-mini em{display:block;color:var(--red);font-size:11px;font-style:normal;font-weight:800;margin-top:2px;animation:blink 1.2s infinite;}
   .sticky-cta a{flex:1.4;background:linear-gradient(135deg,#ff6a00,#e85a00);color:#fff;padding:12px;border-radius:30px;text-decoration:none;text-align:center;font-weight:900;font-size:14px;box-shadow:0 4px 12px rgba(255,106,0,.4);}
   body{padding-bottom:80px;}
+
+  /* LIVE POP NOTIF */
+  .live-pop{position:fixed;left:14px;bottom:90px;background:#fff;border-radius:12px;box-shadow:0 8px 28px rgba(0,0,0,.2);padding:10px 14px;display:flex;gap:10px;align-items:center;max-width:280px;z-index:998;font-size:13px;transform:translateX(-120%);transition:transform .4s ease;border-left:4px solid var(--green);}
+  .live-pop.show{transform:translateX(0);}
+  .live-pop .lp-ic{font-size:24px;}
+  .live-pop b{color:var(--blue-dark);}
+  .live-pop span{display:block;font-size:11px;color:#666;margin-top:2px;}
 </style>
 </head>
 <body>
 
-<div class="topbar"><span class="dot"></span> PROMO HARI INI! Diskon hingga 35% + GRATIS Ongkir COD</div>
+<div class="topbar"><span class="dot"></span> 🔥 PROMO HARI INI! DISKON 35% + BONUS GRATIS + GARANSI 100% UANG KEMBALI</div>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="badge-sold">🔥 Terjual <b>50.000+</b> | Rating ⭐ 4.9/5</div>
-  <h1>10X LEBIH PRAKTIS <em>BERSIHKAN LANTAI!</em></h1>
-  <p class="sub">Alat pel modern dengan microfiber daya serap tinggi & sistem peras otomatis. Lantai kinclong tanpa pegal, tanpa basah-basahan tangan!</p>
+  <div class="badge-sold">🔥 Terjual <b>50.000+</b> | ⭐ Rating 4.9/5 (12.480 Ulasan)</div>
+  <h1>NGEPEL CUMA <em>10 MENIT!</em><br/>Lantai Kinclong Tanpa Pegal & Tanpa Basah Tangan</h1>
+  <p class="sub">⚡ Alat pel revolusioner dengan microfiber super absorbent + sistem peras 360° anti-ribet. <b>Sekali usap = bersih maksimal!</b></p>
 
   <div class="hero-card">
     <img src="https://brdsg.com/img/800/bsob0d3ebsofesrxg9_2/LmHlHrh1hkVt0fVLmKAi3GOO2Syub7TT6jaOEDN3BtOg.jpg" alt="Cleanov Alat Pel Microfiber" />
-    <div class="promo-strip">⚡ FLASH SALE COD ⚡</div>
+    <div class="promo-strip">⚡ FLASH SALE COD ⚡ HEMAT 70RB</div>
   </div>
 
   <div class="stars">★ ★ ★ ★ ★</div>
-  <p class="rating-txt">Dipercaya 50.000+ ibu rumah tangga di Indonesia</p>
+  <p class="rating-txt">Dipercaya 50.000+ ibu rumah tangga se-Indonesia</p>
 
   <div class="price-hero">
     <span class="price-old">Rp 199.000</span>
     <span class="price-new">Rp 129.000</span>
-    <p class="price-tag">💰 Hemat Rp 70.000 — Bayar di Rumah (COD)</p>
+    <p class="price-tag">💰 HEMAT Rp 70.000 — Bayar di Rumah (COD) + GRATIS Ongkir</p>
   </div>
 
-  <a href="#order" class="btn-cta">🛒 PESAN SEKARANG<small>Klik di sini → Stok terbatas!</small></a>
+  <a href="#order" class="btn-cta">🛒 PESAN SEKARANG — HARGA PROMO<small>👇 Klik & isi alamat, barang sampai baru bayar!</small></a>
+
+  <div class="guarantee-badges">
+    <div class="gb">✅<br/><span>GARANSI 100%<br/>Uang Kembali</span></div>
+    <div class="gb">🚚<br/><span>GRATIS<br/>Ongkir COD</span></div>
+    <div class="gb">🎁<br/><span>BONUS<br/>Senilai 50rb</span></div>
+  </div>
 </section>
 
 <!-- PAIN POINTS -->
 <section class="pain">
   <div class="container">
-    <h2 class="section-title">Masih Pakai Pel Lama? <em>STOP!</em></h2>
-    <p class="section-sub">Anda pasti sering ngalamin masalah-masalah ini saat ngepel lantai…</p>
+    <h2 class="section-title">Capek Ngepel Tiap Hari? <em>Sudah Saatnya STOP!</em></h2>
+    <p class="section-sub">Jujur deh… kalau ngepel udah jadi siksaan harian, berarti masalahnya BUKAN di lantai, tapi di alat pelmu 👇</p>
     <div class="pain-list">
-      <div class="pain-item"><div class="x">✕</div><div><b>Tangan basah & kotor</b>Harus peres pel pakai tangan, jijik & nggak higienis</div></div>
-      <div class="pain-item"><div class="x">✕</div><div><b>Pegal & capek punggung</b>Harus bungkuk-bungkuk, ngepel lama tapi lantai masih kusam</div></div>
-      <div class="pain-item"><div class="x">✕</div><div><b>Lantai lama kering</b>Pel lama nyimpan air banyak, lantai jadi licin & lembap</div></div>
-      <div class="pain-item"><div class="x">✕</div><div><b>Noda membandel susah hilang</b>Kotoran kering & lemak nempel, kain pel biasa nggak ngangkat</div></div>
+      <div class="pain-item"><div class="x">✕</div><div><b>Tangan Selalu Basah & Bau Apek</b>Setiap peres pel harus pakai tangan — jijik, lengket, & kuku jadi cepat rusak</div></div>
+      <div class="pain-item"><div class="x">✕</div><div><b>Punggung Pegal Tiap Selesai Ngepel</b>Bungkuk-bungkuk berjam-jam, tapi lantai masih buram & nggak kinclong</div></div>
+      <div class="pain-item"><div class="x">✕</div><div><b>Lantai Licin & Anak Sering Kepleset</b>Pel lama nyimpan terlalu banyak air, bahaya buat anak & lansia di rumah</div></div>
+      <div class="pain-item"><div class="x">✕</div><div><b>Noda Membandel Tetap Aja Nempel</b>Kotoran kering, lemak dapur, jejak sepatu — kain pel biasa nggak ngangkat</div></div>
+      <div class="pain-item"><div class="x">✕</div><div><b>Buang Waktu 1-2 Jam Tiap Hari</b>Padahal waktu segitu bisa buat ngurus anak, kerja, atau istirahat!</div></div>
     </div>
   </div>
 </section>
@@ -218,6 +254,25 @@
       <div class="feature"><div class="ico">🦵</div><h4>Anti Pegal</h4><p>Gagang panjang, nggak perlu bungkuk-bungkuk lagi</p></div>
       <div class="feature"><div class="ico">✨</div><h4>Cepat Kering</h4><p>Lantai langsung kering, nggak licin & nggak lembap</p></div>
     </div>
+  </div>
+</section>
+
+<!-- VS COMPARISON -->
+<section class="vs-wrap">
+  <div class="container">
+    <h2 class="section-title">Pel Biasa VS <em>CLEANOV</em></h2>
+    <p class="section-sub">Lihat sendiri kenapa 50.000+ orang sudah berhenti pakai pel lama 👇</p>
+    <div class="vs-table">
+      <div class="vs-row vs-head"><div>FITUR</div><div class="vs-bad">PEL BIASA</div><div class="vs-good">CLEANOV</div></div>
+      <div class="vs-row"><div>Waktu Ngepel</div><div class="vs-bad">⏰ 1-2 jam</div><div class="vs-good">⚡ 10-15 menit</div></div>
+      <div class="vs-row"><div>Tangan Basah?</div><div class="vs-bad">✗ Selalu</div><div class="vs-good">✓ Anti basah</div></div>
+      <div class="vs-row"><div>Daya Serap</div><div class="vs-bad">✗ Standar</div><div class="vs-good">✓ 5x lebih kuat</div></div>
+      <div class="vs-row"><div>Sistem Peras</div><div class="vs-bad">✗ Manual</div><div class="vs-good">✓ Otomatis 360°</div></div>
+      <div class="vs-row"><div>Lantai Cepat Kering?</div><div class="vs-bad">✗ Lama & licin</div><div class="vs-good">✓ Langsung kering</div></div>
+      <div class="vs-row"><div>Capek Punggung?</div><div class="vs-bad">✗ Pegal banget</div><div class="vs-good">✓ Bebas pegal</div></div>
+      <div class="vs-row"><div>Garansi</div><div class="vs-bad">✗ Nggak ada</div><div class="vs-good">✓ 100% Uang Kembali</div></div>
+    </div>
+    <p style="text-align:center;margin-top:18px;font-weight:800;color:var(--red);font-size:16px;">Masih mau lanjut pakai pel lama? 🤔</p>
   </div>
 </section>
 
@@ -288,49 +343,63 @@
 <!-- PACKAGES -->
 <section class="packages" id="paket">
   <div class="container">
-    <h2 class="section-title">Pilih Paket <em>Hemat</em> Kamu!</h2>
-    <p class="section-sub">Semakin banyak, semakin hemat. Garansi 100% uang kembali jika barang rusak.</p>
+    <h2 class="section-title">Pilih Paket <em>Hemat</em> Hari Ini!</h2>
+    <p class="section-sub">⚠️ Harga ini cuma berlaku <b>hari ini</b>. Besok kembali harga normal Rp 199.000!</p>
 
     <div class="pkg-grid">
       <div class="pkg">
         <h3>PAKET HEMAT</h3>
-        <div class="old">Rp 199.000</div>
+        <div class="old">Normal: Rp 199.000</div>
         <div class="new">Rp 129.000</div>
+        <div class="save-badge">HEMAT Rp 70.000</div>
         <ul>
-          <li>1 pcs Cleanov Alat Pel</li>
-          <li>Microfiber premium</li>
-          <li>Garansi rusak diganti</li>
-          <li>GRATIS Ongkir COD</li>
+          <li>1 pcs Cleanov Alat Pel Premium</li>
+          <li>Microfiber daya serap tinggi</li>
+          <li>🎁 <b>BONUS:</b> Ember lipat</li>
+          <li>✅ Garansi 100% Uang Kembali</li>
+          <li>🚚 GRATIS Ongkir COD</li>
         </ul>
-        <a href="#order" class="btn-mini">PESAN PAKET INI</a>
+        <a href="#order" class="btn-mini">PESAN PAKET INI →</a>
       </div>
 
       <div class="pkg best">
-        <div class="tag">⭐ Best Seller</div>
+        <div class="tag">⭐ PALING LARIS</div>
         <h3>PAKET FAVORIT</h3>
-        <div class="old">Rp 279.000</div>
+        <div class="old">Normal: Rp 279.000</div>
         <div class="new">Rp 179.000</div>
+        <div class="save-badge">HEMAT Rp 100.000</div>
         <ul>
-          <li>1 pcs Cleanov Alat Pel</li>
-          <li><b>+ 1 Refill Microfiber</b></li>
-          <li>Tahan lebih lama!</li>
-          <li>GRATIS Ongkir COD</li>
+          <li>1 pcs Cleanov Alat Pel Premium</li>
+          <li><b>+ 1 Refill Microfiber Extra</b></li>
+          <li>🎁 <b>BONUS:</b> Ember lipat + Sarung tangan</li>
+          <li>✅ Garansi 100% Uang Kembali</li>
+          <li>🚚 GRATIS Ongkir COD</li>
         </ul>
-        <a href="#order" class="btn-mini">PESAN PAKET INI</a>
+        <a href="#order" class="btn-mini">PESAN PAKET INI →</a>
       </div>
 
       <div class="pkg save">
-        <div class="tag">💰 Paling Hemat</div>
-        <h3>PAKET HEMAT 2</h3>
-        <div class="old">Rp 398.000</div>
+        <div class="tag">💰 PALING HEMAT</div>
+        <h3>PAKET KELUARGA</h3>
+        <div class="old">Normal: Rp 398.000</div>
         <div class="new">Rp 219.000</div>
+        <div class="save-badge">HEMAT Rp 179.000</div>
         <ul>
-          <li><b>2 pcs Cleanov</b> Alat Pel</li>
-          <li>Beli 1 buat keluarga 1 lagi!</li>
-          <li>Hemat Rp 179.000</li>
-          <li>GRATIS Ongkir COD</li>
+          <li><b>2 pcs Cleanov</b> Alat Pel Premium</li>
+          <li>+ 2 Refill Microfiber</li>
+          <li>🎁 <b>BONUS:</b> 2 Ember lipat + Hadiah</li>
+          <li>✅ Garansi 100% Uang Kembali</li>
+          <li>🚚 GRATIS Ongkir COD</li>
         </ul>
-        <a href="#order" class="btn-mini">PESAN PAKET INI</a>
+        <a href="#order" class="btn-mini">PESAN PAKET INI →</a>
+      </div>
+    </div>
+
+    <div class="guarantee-seal">
+      <div class="seal-icon">🛡️</div>
+      <div>
+        <h4>GARANSI 100% UANG KEMBALI!</h4>
+        <p>Jika produk rusak, cacat, atau tidak sesuai — kami kirim ulang GRATIS atau uang Anda kembali 100%. <b>Tanpa pertanyaan!</b></p>
       </div>
     </div>
   </div>
@@ -393,21 +462,42 @@
 </section>
 
 <!-- FINAL CTA -->
-<section style="background:linear-gradient(135deg,#0066ff,#003d99);color:#fff;text-align:center;padding:42px 18px;">
-  <h2 style="font-size:clamp(22px,5.5vw,32px);font-weight:900;margin-bottom:12px;">Jangan Sampai Kehabisan!</h2>
-  <p style="opacity:.95;max-width:520px;margin:0 auto 22px;font-size:15px;">Stok promo sangat terbatas. Pesan sekarang sebelum harga normal kembali Rp 199.000!</p>
-  <a href="#order" class="btn-cta">🛒 PESAN SEKARANG<small>Klik & dapatkan harga promo COD</small></a>
+<section style="background:linear-gradient(135deg,#c00 0%,#e85a00 100%);color:#fff;text-align:center;padding:48px 18px;">
+  <div style="font-size:13px;font-weight:800;letter-spacing:2px;background:rgba(0,0,0,.25);display:inline-block;padding:6px 16px;border-radius:30px;margin-bottom:16px;">⚠️ KESEMPATAN TERAKHIR</div>
+  <h2 style="font-size:clamp(24px,6vw,36px);font-weight:900;margin-bottom:14px;line-height:1.15;">Pesan SEKARANG atau Sesali Nanti!</h2>
+  <p style="opacity:.95;max-width:560px;margin:0 auto 18px;font-size:16px;font-weight:600;">Setelah promo berakhir, harga balik <s>Rp 199.000</s>.<br/>Hari ini cuma <b style="color:#ffd400;font-size:22px;">Rp 129.000</b> + BONUS senilai 50rb 🎁</p>
+
+  <div style="background:rgba(0,0,0,.3);max-width:480px;margin:0 auto 22px;padding:16px;border-radius:14px;border:1.5px solid rgba(255,255,255,.25);">
+    <p style="font-weight:800;font-size:14px;margin-bottom:8px;">✅ Yang Anda Dapatkan:</p>
+    <div style="text-align:left;font-size:14px;line-height:1.9;">
+      ✓ 1x Cleanov Alat Pel Premium <span style="opacity:.7;float:right;">Rp 199.000</span><br/>
+      ✓ BONUS Ember Lipat <span style="opacity:.7;float:right;">Rp 35.000</span><br/>
+      ✓ BONUS Sarung Tangan <span style="opacity:.7;float:right;">Rp 15.000</span><br/>
+      ✓ GRATIS Ongkir COD <span style="opacity:.7;float:right;">Rp 20.000</span><br/>
+      ✓ Garansi 100% Uang Kembali <span style="opacity:.7;float:right;">PRICELESS</span>
+    </div>
+    <hr style="border-color:rgba(255,255,255,.2);margin:10px 0;"/>
+    <div style="font-weight:900;font-size:15px;">Total Nilai: <s>Rp 269.000</s></div>
+    <div style="font-weight:900;font-size:22px;color:#ffd400;">Bayar Cuma: Rp 129.000!</div>
+  </div>
+
+  <a href="#order" class="btn-cta" style="background:linear-gradient(135deg,#ffd400,#ff9800);color:#000;">🛒 YA, SAYA MAU PESAN SEKARANG!<small style="color:#333;">⚡ Klik & bayar di tempat — Aman 100%</small></a>
+  <p style="margin-top:14px;font-size:12px;opacity:.85;">🔒 Tidak ada risiko — Jika tidak puas, uang kembali 100%</p>
 </section>
 
 <footer>
-  <p>© 2026 <b>CLEANOV</b> — Alat Pel Microfiber Terlaris</p>
-  <p style="margin-top:6px;opacity:.7;font-size:12px;">Customer Service: WhatsApp 24 jam</p>
+  <p>© 2026 <b>CLEANOV</b> — Alat Pel Microfiber Terlaris #1 di Indonesia</p>
+  <p style="margin-top:6px;opacity:.7;font-size:12px;">Customer Service Online 24 Jam · Dikirim dari Gudang Resmi</p>
 </footer>
 
 <!-- STICKY -->
 <div class="sticky-cta">
-  <div class="price-mini"><s>Rp 199.000</s><b>Rp 129.000</b></div>
-  <a href="#order">🛒 PESAN SEKARANG</a>
+  <div class="price-mini">
+    <s>Rp 199.000</s>
+    <b>Rp 129.000</b>
+    <em>⚠️ Sisa <span id="stockMini">10</span> pcs!</em>
+  </div>
+  <a href="#order">🛒 PESAN<br/>SEKARANG</a>
 </div>
 
 <script>
@@ -423,6 +513,37 @@
   }
   tick(); setInterval(tick,1000);
 
+  // Dynamic stock counter (turun random tiap 25-60 detik, min 3)
+  let stock = 10;
+  const stockEl=document.getElementById('stockLeft');
+  const stockMini=document.getElementById('stockMini');
+  function dropStock(){
+    if(stock>3){
+      stock--;
+      if(stockEl) stockEl.textContent=stock;
+      if(stockMini) stockMini.textContent=stock;
+    }
+    setTimeout(dropStock, 25000 + Math.random()*35000);
+  }
+  setTimeout(dropStock, 18000);
+
+  // Live "barusan dipesan" notifikasi pop
+  const buyers=[
+    ["Ibu Sari","Bandung"],["Pak Andi","Jakarta"],["Mbak Rina","Surabaya"],
+    ["Bu Dewi","Semarang"],["Pak Joko","Medan"],["Mbak Lia","Bekasi"],
+    ["Bu Tini","Bogor"],["Pak Hasan","Malang"],["Mbak Putri","Yogya"],
+    ["Bu Wati","Tangerang"],["Mbak Sinta","Depok"],["Pak Eko","Bali"]
+  ];
+  function showPop(){
+    const b=buyers[Math.floor(Math.random()*buyers.length)];
+    const div=document.createElement('div');
+    div.className='live-pop';
+    div.innerHTML=`<div class="lp-ic">🛒</div><div><b>${b[0]}</b> dari <b>${b[1]}</b><span>baru saja memesan Cleanov ✅</span></div>`;
+    document.body.appendChild(div);
+    setTimeout(()=>div.classList.add('show'),50);
+    setTimeout(()=>{div.classList.remove('show');setTimeout(()=>div.remove(),400);},4500);
+  }
+  setTimeout(function loop(){showPop();setTimeout(loop, 12000+Math.random()*10000);}, 6000);
 </script>
 </body>
 </html>
